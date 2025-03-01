@@ -19,12 +19,11 @@ const App = () => {
     try {
       if (data.email && data.password) {
         let response = await axios.get(`http://localhost:8080/${data.email}`);
-        console.log(response.data);
         setData({
           email: "",
           password: "",
         });
-        toast.success(data.data);
+        toast.success(`welcome ${response.data.fname}`);
       } else {
         toast.error("please fill all fields");
       }
